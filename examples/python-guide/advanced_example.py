@@ -150,6 +150,7 @@ def loglikelihood(preds, train_data):
 # binary error
 def binary_error(preds, train_data):
     labels = train_data.get_label()
+    preds = 1. / (1. + np.exp(-preds))
     return 'error', np.mean(labels != (preds > 0.5)), False
 
 
